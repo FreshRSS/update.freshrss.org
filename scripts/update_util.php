@@ -162,6 +162,7 @@ function deploy_package() {
 	del_tree(APP_PATH);
 	del_tree(LIB_PATH);
 	del_tree(PUBLIC_PATH);
+	del_tree(FRESHRSS_PATH . '/cli');
 	unlink(FRESHRSS_PATH . '/constants.php');
 	unlink(DATA_PATH . '/shares.php');
 
@@ -169,6 +170,7 @@ function deploy_package() {
 	recurse_copy($base_pathname . '/app', APP_PATH);
 	recurse_copy($base_pathname . '/lib', LIB_PATH);
 	recurse_copy($base_pathname . '/p', PUBLIC_PATH);
+	recurse_copy($base_pathname . '/cli', FRESHRSS_PATH . '/cli');
 	copy($base_pathname . '/constants.php', FRESHRSS_PATH . '/constants.php');
 	copy($base_pathname . '/data/shares.php', DATA_PATH . '/shares.php');
 	// These functions can fail because config.default.php has been introduced
