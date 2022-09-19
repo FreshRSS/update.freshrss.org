@@ -186,6 +186,9 @@ function deploy_package() {
 	@copy($base_pathname . '/config-user.default.php',
 	      FRESHRSS_PATH . '/config-user.default.php');
 
+	if (function_exists('opcache_reset')) {
+		opcache_reset();
+	}
 	return true;
 }
 
