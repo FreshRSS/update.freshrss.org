@@ -112,4 +112,7 @@ return array(
 	'1.22.0-dev' => 'dev',
 	'1.22.1-dev' => 'dev',
 	'1.22.2-dev' => 'dev',
+	'1.23.0-dev' => 'dev',
+	'1.23.1-dev' => 'dev',
+	'1.23.2-dev' => 'dev',
 );
