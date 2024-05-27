@@ -5,6 +5,8 @@ define('PACKAGE_URL', 'https://codeload.github.com/FreshRSS/FreshRSS/zip/1.23.0'
 
 // Apply the update by replacing old version of FreshRSS by the new one.
 function apply_update() {
+	/** @disregard DATA_PATH **/
+	/** @disregard FRESHRSS_PATH **/
 	$dirs_to_check = array(
 		DATA_PATH,
 		DATA_PATH . '/cache',
@@ -22,10 +24,12 @@ function apply_update() {
 	// First, do a backup.
 	$res = remove_data_backup();
 	if (!$res) {
+		/** @disregard DATA_PATH **/
 		return 'can\'t remove backup of ' . DATA_PATH;
 	}
 	$res = data_backup();
 	if (!$res) {
+		/** @disregard DATA_PATH **/
 		return 'can\'t do a backup of ' . DATA_PATH;
 	}
 
