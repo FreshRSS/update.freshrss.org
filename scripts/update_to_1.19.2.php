@@ -5,8 +5,7 @@ define('PACKAGE_URL', 'https://codeload.github.com/FreshRSS/FreshRSS/zip/1.19.2'
 
 // Apply the update by replacing old version of FreshRSS by the new one.
 function apply_update() {
-	/** @disregard DATA_PATH **/
-	/** @disregard FRESHRSS_PATH **/
+	/** @disregard P1011 Supress undefined constants**/
 	$dirs_to_check = array(
 		DATA_PATH,
 		DATA_PATH . '/cache',
@@ -24,12 +23,12 @@ function apply_update() {
 	// First, do a backup.
 	$res = remove_data_backup();
 	if (!$res) {
-		/** @disregard DATA_PATH **/
+		/** @disregard P1011 Supress undefined constants**/
 		return 'can\'t remove backup of ' . DATA_PATH;
 	}
 	$res = data_backup();
 	if (!$res) {
-		/** @disregard DATA_PATH **/
+		/** @disregard P1011 Supress undefined constants**/
 		return 'can\'t do a backup of ' . DATA_PATH;
 	}
 

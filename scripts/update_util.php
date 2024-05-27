@@ -1,5 +1,5 @@
 <?php
-/** @disregard DATA_PATH **/
+/** @disregard P1011 Supress undefined constants**/
 define('PACKAGE_PATHNAME', DATA_PATH . '/update_package');
 
 
@@ -44,14 +44,14 @@ function recurse_copy($src, $dst) {
 
 
 // Remove previous backup of data.
-/** @disregard DATA_PATH **/
+/** @disregard P1011 Supress undefined constants**/
 function remove_data_backup() {
 	return del_tree(DATA_PATH . '.back');
 }
 
 
 // Create a backup of data.
-/** @disregard DATA_PATH **/
+/** @disregard P1011 Supress undefined constants**/
 function data_backup() {
 	$from = DATA_PATH;
 	$to = $from .'.back';
@@ -137,7 +137,7 @@ function save_package($url) {
 
 
 // Move custom themes to not delete them
-/** @disregard PUBLIC_PATH **/
+/** @disregard P1011 Supress undefined constants**/
 function save_custom_themes($destination) {
 	$themes_base_dir = PUBLIC_PATH . '/themes';
 	$themes_dirs = array_diff(scandir($themes_base_dir), array('.', '..'));
@@ -167,7 +167,7 @@ function deploy_package() {
 	del_tree(APP_PATH);
 	/** @disregard LIB_PATH **/
 	del_tree(LIB_PATH);
-	/** @disregard PUBLIC_PATH **/
+	/** @disregard P1011 Supress undefined constants**/
 	del_tree(PUBLIC_PATH);
 	/** @disregard FRESHRSS_PATH **/
 	del_tree(FRESHRSS_PATH . '/cli');
@@ -175,37 +175,37 @@ function deploy_package() {
 	unlink(FRESHRSS_PATH . '/constants.php');
 
 	// Deprecated. Next lines could be removed. It was needed for an update from 1.10 previous to newer one. See #1812
-	/** @disregard DATA_PATH **/
+	/** @disregard P1011 Supress undefined constants**/
 	$sharesPHPfilePath = DATA_PATH . '/shares.php';
 	if (file_exists($sharesPHPfilePath)) {
 		unlink($sharesPHPfilePath);
 	}
 
 	// Copy FRSS package at the good place.
-	/** @disregard APP_PATH **/
+	/** @disregard P1011 Supress undefined constants**/
 	recurse_copy($base_pathname . '/app', APP_PATH);
-	/** @disregard LIB_PATH **/
+	/** @disregard P1011 Supress undefined constants**/
 	recurse_copy($base_pathname . '/lib', LIB_PATH);
-	/** @disregard PUBLIC_PATH **/
+	/** @disregard P1011 Supress undefined constants**/
 	recurse_copy($base_pathname . '/p', PUBLIC_PATH);
-	/** @disregard FRESHRSS_PATH **/
+	/** @disregard P1011 Supress undefined constants**/
 	recurse_copy($base_pathname . '/cli', FRESHRSS_PATH . '/cli');
-	/** @disregard FRESHRSS_PATH **/
+	/** @disregard P1011 Supress undefined constants**/
 	copy($base_pathname . '/constants.php', FRESHRSS_PATH . '/constants.php');
 	// These functions can fail because config.default.php has been introduced
 	// in the 0.9.4 version.
-	/** @disregard DATA_PATH **/
+	/** @disregard P1011 Supress undefined constants**/
 	@copy($base_pathname . '/data/config.default.php',
 	      DATA_PATH . '/config.default.php');
-	/** @disregard DATA_PATH **/
+	/** @disregard P1011 Supress undefined constants**/
 	@copy($base_pathname . '/data/users/_/config.default.php',
 	      DATA_PATH . '/users/_/config.default.php');
 	// These functions can fail because files have been moved in the 1.7.0
 	// version.
-	/** @disregard FRESHRSS_PATH **/
+	/** @disregard P1011 Supress undefined constants**/
 	@copy($base_pathname . '/config.default.php',
 	      FRESHRSS_PATH . '/config.default.php');
-	/** @disregard FRESHRSS_PATH **/
+	/** @disregard P1011 Supress undefined constants**/
 	@copy($base_pathname . '/config-user.default.php',
 	      FRESHRSS_PATH . '/config-user.default.php');
 
