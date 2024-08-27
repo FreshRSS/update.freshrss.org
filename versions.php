@@ -121,4 +121,7 @@ return array(
 	'1.24.0-dev' => 'dev',
 	'1.24.1-dev' => 'dev',
 	'1.24.2-dev' => 'dev',
+	'1.24.3-dev' => 'dev',
+	'1.24.4-dev' => 'dev', // possible future version, not yet released
+	'1.25.1-dev' => 'dev', // possible future version, not yet released
 );
