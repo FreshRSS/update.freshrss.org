@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="FreshRSS updates">
+	<arg name="extensions" value="php"/>
+	<arg name="tab-width" value="4"/>
+	<exclude-pattern>./.git/</exclude-pattern>
+	<rule ref="PSR12">
+		<exclude name="Generic.WhiteSpace.DisallowTabIndent.NonIndentTabsUsed"/>
+		<exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+		<exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsedHeredocCloser"/>
+	</rule>
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="165"/>
+			<property name="absoluteLineLimit" value="190"/>
+		</properties>
+	</rule>
+	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
+</ruleset>
