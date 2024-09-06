@@ -7,6 +7,7 @@
 		<exclude name="Generic.WhiteSpace.DisallowTabIndent.NonIndentTabsUsed"/>
 		<exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
 		<exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsedHeredocCloser"/>
+		<exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"/>
 	</rule>
 	<rule ref="Generic.Files.LineLength">
 		<properties>
