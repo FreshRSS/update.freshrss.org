@@ -1,6 +1,7 @@
 <?php
 
 define('PACKAGE_URL', 'https://codeload.github.com/FreshRSS/FreshRSS/zip/1.25.0');
+define('MIN_PHP_VERSION', '8.1.0');
 
 
 // Apply the update by replacing old version of FreshRSS by the new one.
@@ -18,6 +19,11 @@ function apply_update() {
 		DATA_PATH . '/users/_',
 		FRESHRSS_PATH . '/extensions',
 	);
+
+	// check PHP version requirement
+	if (version_compare(MIN_PHP_VERSION, phpversion(), '>')) {
+		return 'PHP Version ' . phpversion() . ' not supported anymore. PHP required minimum ' . MIN_PHP_VERSION . '. Update aborted';
+	}
 
 	// First, do a backup.
 	$res = remove_data_backup();
