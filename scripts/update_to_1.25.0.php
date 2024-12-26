@@ -21,8 +21,8 @@ function apply_update() {
 	);
 
 	// check PHP version requirement
-	if (version_compare(MIN_PHP_VERSION, phpversion(), '>')) {
-		return 'PHP Version ' . phpversion() . ' not supported anymore. PHP required minimum ' . MIN_PHP_VERSION . '. Update aborted';
+	if (version_compare(MIN_PHP_VERSION, PHP_VERSION, '>')) {
+		return 'PHP Version ' . PHP_VERSION . ' not supported anymore. PHP required minimum ' . MIN_PHP_VERSION . '. Update aborted';
 	}
 
 	// First, do a backup.
