@@ -53,7 +53,8 @@ return array(
 	'1.24.1' => '1.24.3',
 	'1.24.2' => '1.24.3',
 	'1.24.3' => '1.25.0',
-	'1.25.0' => '1.26.0',  // doesn't exist (yet)
+	'1.25.0' => '1.26.0',
+	'1.26.0' => '1.27.0',  // doesn't exist (yet)
 	//BETA
 	'0.9.0' => '1.1.0',
 	'0.9.1' => '1.1.0',
@@ -126,6 +127,8 @@ return array(
 	'1.24.3-dev' => 'dev',
 	'1.25.0-dev' => 'dev',
 	'1.25.1-dev' => 'dev',
-	'1.25.2-dev' => 'dev', // possible future version, not yet released
-	'1.26.0-dev' => 'dev', // possible future version, not yet released
+	'1.26.0-dev' => 'dev',
+	'1.26.1-dev' => 'dev',
+	'1.26.2-dev' => 'dev', // possible future version, not yet released
+	'1.27.0-dev' => 'dev', // possible future version, not yet released
 );
