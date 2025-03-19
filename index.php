@@ -24,13 +24,16 @@ if ($version === false) {
 }
 
 // Version specified is not in the versions array, so it is not supported!
-if (!array_key_exists($version, $versions)) {
+if (str_ends_with($version, '-dev')) {
+	$update_version = 'dev';
+} elseif (array_key_exists($version, $versions)) {
+	$update_version = $versions[$version];
+} else {
 	echo 'INVALID_VERSION ' . $version;
 	return;
 }
 
 
-$update_version = $versions[$version];
 $filename_update = 'scripts/update_to_' . $update_version . '.php';
 
 // Current version have no update because not specified or script doesn't exist.
