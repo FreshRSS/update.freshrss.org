@@ -9,11 +9,13 @@ function apply_update() {
 	$dirs_to_check = array(
 		DATA_PATH,
 		DATA_PATH . '/cache',
+		DATA_PATH . '/extensions-data',
 		DATA_PATH . '/favicons',
-		DATA_PATH . '/persona',
+		DATA_PATH . '/fever',
 		DATA_PATH . '/PubSubHubbub',
 		DATA_PATH . '/PubSubHubbub/feeds',
 		DATA_PATH . '/PubSubHubbub/keys',
+		DATA_PATH . '/Retry-After',
 		DATA_PATH . '/tokens',
 		DATA_PATH . '/users',
 		DATA_PATH . '/users/_',
@@ -36,7 +38,7 @@ function apply_update() {
 	}
 
 	// For each directory, we check it exists, dir/index.html exists and we can
-	// write inside.
+	// write inside. (if the directory doesn't exist, it's created)
 	foreach ($dirs_to_check as $dir) {
 		$res = check_directory($dir);
 		if (!$res) {
