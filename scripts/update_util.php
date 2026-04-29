@@ -150,6 +150,21 @@ function save_custom_themes($destination) {
 }
 
 
+// Preserve custom auth files to not delete them
+function save_custom_auth($destination) {
+	$auth_dir = PUBLIC_PATH . '/i';
+	foreach (array('.htaccess', '.htpasswd') as $filename) {
+		$src = $auth_dir . '/' . $filename;
+		if (is_file($src)) {
+			$dst = $destination . '/' . $filename;
+			$mode = fileperms($src) & 0777;
+			copy($src, $dst);
+			chmod($dst, $mode);  // copy() does not preserve mode
+		}
+	}
+}
+
+
 // Deploy FreshRSS package by replacing old version by the new one.
 function deploy_package() {
 	$base_pathname = array_pop(array_diff(scandir(PACKAGE_PATHNAME),
@@ -157,6 +172,7 @@ function deploy_package() {
 	$base_pathname = PACKAGE_PATHNAME . '/' . $base_pathname;
 
 	save_custom_themes($base_pathname . '/p/themes');
+	save_custom_auth($base_pathname . '/p/i');
 
 	// Remove old version.
 	del_tree(APP_PATH);
