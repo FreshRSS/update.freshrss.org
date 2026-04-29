@@ -157,7 +157,7 @@ function save_custom_auth($destination) {
 		$src = $auth_dir . '/' . $filename;
 		if (is_file($src)) {
 			$dst = $destination . '/' . $filename;
-			$mode = fileperms($src) & 0777;
+			$mode = fileperms($src) & 0777;	// Mask to keep only the permission bits
 			copy($src, $dst);
 			chmod($dst, $mode);  // copy() does not preserve mode
 		}
