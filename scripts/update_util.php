@@ -151,7 +151,7 @@ function save_custom_themes($destination) {
 
 
 // Preserve custom auth files to not delete them
-function save_custom_auth($destination) {
+function save_custom_auth(string $destination) {
 	$auth_dir = PUBLIC_PATH . '/i';
 	foreach (['.htaccess', '.htpasswd'] as $filename) {
 		$src = $auth_dir . '/' . $filename;
